@@ -51,8 +51,8 @@ void insertElement(Student *head,int index)        //在第几号节点处插入
 		Student *p_insert =new Student;
 		cout<<"请输入新学生的信息"<<endl; 
 		cin>>p_insert->name>>p_insert->age;
-        p_insert->next=pre->next;
-	    pre->next=p_insert;
+                                p_insert->next=pre->next;
+	                pre->next=p_insert;
 		
 	}
 } 
