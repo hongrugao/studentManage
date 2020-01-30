@@ -64,13 +64,13 @@ void deleteElement(Student *head,int index)        //删除第几号节点
 	}
 	else
 	{
-		Student *p=head->next;
-		for(int i=0;i<index-2;i++)
+		Student *pre=head;
+		for(int i=0;i<index-1;i++)
 		{
-			p=p->next; 
+			pre=pre->next; 
 		} 
-		Student *p_delete=p->next;
-		p->next=p_delete->next;
+		Student *p_delete=pre->next;
+		pre->next=p_delete->next;
 		delete p_delete;
 	}
 } 
