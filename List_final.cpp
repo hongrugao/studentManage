@@ -1,14 +1,14 @@
 #include<iostream>       // 
 using namespace std;
 
-typedef struct node      //èŠ‚ç‚¹çš„ç»“æ„ä½“ 
+typedef struct node      //½ÚµãµÄ½á¹¹Ìå 
 {
 	char name[20];
 	int age;
 	node * next;
  }Student;
  
-int length(Student * head)     //è®¡ç®—é“¾è¡¨é•¿åº¦ 
+int length(Student * head)     //¼ÆËãÁ´±í³¤¶È 
 {
 	int count =0;
 	Student *p=head->next;
@@ -20,14 +20,14 @@ int length(Student * head)     //è®¡ç®—é“¾è¡¨é•¿åº¦
 	return count;
 	
  } 
-Student * createList(int n)       //åˆ›å»ºé“¾è¡¨ 
+Student * createList(int n)       //´´½¨Á´±í 
 {
  	Student * head=new Student;
  	Student * pre=head;
  	for(int i=0;i<n;i++)
  	{
  		Student *p=new Student;
- 		cout<<"è¯·è¾“å…¥ç¬¬"<<i+1<<"ä¸ªå­¦ç”Ÿçš„å§“åä¸å¹´é¾„"<<endl;
+ 		cout<<"ÇëÊäÈëµÚ"<<i+1<<"¸öÑ§ÉúµÄĞÕÃûÓëÄêÁä"<<endl;
 		cin>>p->name>>p->age;
 		pre->next=p;
 		pre=p; 
@@ -35,9 +35,9 @@ Student * createList(int n)       //åˆ›å»ºé“¾è¡¨
 	}
 	return head;
 } 
-void insertElement(Student *head,int index)        //åœ¨ç¬¬å‡ å·èŠ‚ç‚¹å¤„æ’å…¥èŠ‚ç‚¹ 
+void insertElement(Student *head,int index)        //ÔÚµÚ¼¸ºÅ½Úµã´¦²åÈë½Úµã 
 {
-	if(index<0||index>length(head))
+	if(index<=0||index>length(head)+1)
 	{
 		throw"out of range"; 
 	}
@@ -49,16 +49,16 @@ void insertElement(Student *head,int index)        //åœ¨ç¬¬å‡ å·èŠ‚ç‚¹å¤„æ’å…¥
 			pre=pre->next;
 		} 
 		Student *p_insert =new Student;
-		cout<<"è¯·è¾“å…¥æ–°å­¦ç”Ÿçš„ä¿¡æ¯"<<endl; 
+		cout<<"ÇëÊäÈëĞÂÑ§ÉúµÄĞÅÏ¢"<<endl; 
 		cin>>p_insert->name>>p_insert->age;
                                 p_insert->next=pre->next;
 	                pre->next=p_insert;
 		
 	}
 } 
-void deleteElement(Student *head,int index)        //åˆ é™¤ç¬¬å‡ å·èŠ‚ç‚¹ 
+void deleteElement(Student *head,int index)        //É¾³ıµÚ¼¸ºÅ½Úµã 
 {
-	if(index<0||index>length(head))
+	if(index<=0||index>length(head))
 	{
 		throw"out of range"; 
 	}
@@ -74,7 +74,7 @@ void deleteElement(Student *head,int index)        //åˆ é™¤ç¬¬å‡ å·èŠ‚ç‚¹
 		delete p_delete;
 	}
 } 
-void display(Student *head)                //éå†è¾“å‡ºèŠ‚ç‚¹
+void display(Student *head)                //±éÀúÊä³ö½Úµã
 {
   	Student *p=head->next;
   	while(p!=NULL)
@@ -89,7 +89,7 @@ int main()
     display(h);
 	while(1)
 	{
-		cout<<"è¾“å…¥1æ’å…¥æ–°å­¦ç”Ÿï¼Œè¾“å…¥2åˆ é™¤å­¦ç”Ÿï¼Œè¾“å…¥3å±•ç¤ºå­¦ç”Ÿä¿¡æ¯ï¼Œè¾“å…¥4é€€å‡º"<<endl; 
+		cout<<"ÊäÈë1²åÈëĞÂÑ§Éú£¬ÊäÈë2É¾³ıÑ§Éú£¬ÊäÈë3Õ¹Ê¾Ñ§ÉúĞÅÏ¢£¬ÊäÈë4ÍË³ö"<<endl; 
 		int a;
 		cin>>a;
 		if(a==4)
@@ -102,7 +102,7 @@ int main()
 	                {
 		                case 1:
 		                {
-			               cout<<"æ’å…¥åˆ°ç¬¬å‡ å·å­¦ç”Ÿ"<<endl; 
+			               cout<<"²åÈëµ½µÚ¼¸ºÅÑ§Éú"<<endl; 
 			               int k;
 			               cin>>k;
 			               insertElement(h,k);
@@ -110,18 +110,18 @@ int main()
 		                }
 		                case 2:
 		                {
-			               cout<<"åˆ é™¤ç¬¬å‡ å·å­¦ç”Ÿ"<<endl; 
+			               cout<<"É¾³ıµÚ¼¸ºÅÑ§Éú"<<endl; 
 			               int k;
 			               cin>>k;
 			               deleteElement(h,k);
 			               break;
-	                        }
-	                        case 3:
+	                    }
+	                    case 3:
 		                {
 			               display(h);
 			               break;
-	                        }
-	                 }
+	                    }
+	                }
 		}	
 	}
  } 
