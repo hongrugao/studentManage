@@ -1,14 +1,14 @@
 #include<iostream>       // 
 using namespace std;
 
-typedef struct node      //½ÚµãµÄ½á¹¹Ìå 
+typedef struct node      //èŠ‚ç‚¹çš„ç»“æ„ä½“ 
 {
 	char name[20];
 	int age;
 	node * next;
  }Student;
  
-int length(Student * head)     //¼ÆËãÁ´±í³¤¶È 
+int length(Student * head)     //è®¡ç®—é“¾è¡¨é•¿åº¦ 
 {
 	int count =0;
 	Student *p=head->next;
@@ -20,14 +20,14 @@ int length(Student * head)     //¼ÆËãÁ´±í³¤¶È
 	return count;
 	
  } 
-Student * createList(int n)       //´´½¨Á´±í 
+Student * createList(int n)       //åˆ›å»ºé“¾è¡¨ 
 {
  	Student * head=new Student;
  	Student * pre=head;
  	for(int i=0;i<n;i++)
  	{
  		Student *p=new Student;
- 		cout<<"ÇëÊäÈëµÚ"<<i+1<<"¸öÑ§ÉúµÄĞÕÃûÓëÄêÁä"<<endl;
+ 		cout<<"è¯·è¾“å…¥ç¬¬"<<i+1<<"ä¸ªå­¦ç”Ÿçš„å§“åä¸å¹´é¾„"<<endl;
 		cin>>p->name>>p->age;
 		pre->next=p;
 		pre=p; 
@@ -35,7 +35,7 @@ Student * createList(int n)       //´´½¨Á´±í
 	}
 	return head;
 } 
-void insertElement(Student *head,int index)        //ÔÚµÚ¼¸ºÅ½Úµã´¦²åÈë½Úµã 
+void insertElement(Student *head,int index)        //åœ¨ç¬¬å‡ å·èŠ‚ç‚¹å¤„æ’å…¥èŠ‚ç‚¹ 
 {
 	if(index<=0||index>length(head)+1)
 	{
@@ -49,14 +49,14 @@ void insertElement(Student *head,int index)        //ÔÚµÚ¼¸ºÅ½Úµã´¦²åÈë½Úµã
 			pre=pre->next;
 		} 
 		Student *p_insert =new Student;
-		cout<<"ÇëÊäÈëĞÂÑ§ÉúµÄĞÅÏ¢"<<endl; 
+		cout<<"è¯·è¾“å…¥æ–°å­¦ç”Ÿçš„ä¿¡æ¯"<<endl; 
 		cin>>p_insert->name>>p_insert->age;
-                                p_insert->next=pre->next;
-	                pre->next=p_insert;
+                p_insert->next=pre->next;
+	        pre->next=p_insert;
 		
 	}
 } 
-void deleteElement(Student *head,int index)        //É¾³ıµÚ¼¸ºÅ½Úµã 
+void deleteElement(Student *head,int index)        //åˆ é™¤ç¬¬å‡ å·èŠ‚ç‚¹ 
 {
 	if(index<=0||index>length(head))
 	{
@@ -74,7 +74,7 @@ void deleteElement(Student *head,int index)        //É¾³ıµÚ¼¸ºÅ½Úµã
 		delete p_delete;
 	}
 } 
-void display(Student *head)                //±éÀúÊä³ö½Úµã
+void display(Student *head)                //éå†è¾“å‡ºèŠ‚ç‚¹
 {
   	Student *p=head->next;
   	while(p!=NULL)
@@ -89,7 +89,7 @@ int main()
     display(h);
 	while(1)
 	{
-		cout<<"ÊäÈë1²åÈëĞÂÑ§Éú£¬ÊäÈë2É¾³ıÑ§Éú£¬ÊäÈë3Õ¹Ê¾Ñ§ÉúĞÅÏ¢£¬ÊäÈë4ÍË³ö"<<endl; 
+		cout<<"è¾“å…¥1æ’å…¥æ–°å­¦ç”Ÿï¼Œè¾“å…¥2åˆ é™¤å­¦ç”Ÿï¼Œè¾“å…¥3å±•ç¤ºå­¦ç”Ÿä¿¡æ¯ï¼Œè¾“å…¥4é€€å‡º"<<endl; 
 		int a;
 		cin>>a;
 		if(a==4)
@@ -102,7 +102,7 @@ int main()
 	                {
 		                case 1:
 		                {
-			               cout<<"²åÈëµ½µÚ¼¸ºÅÑ§Éú"<<endl; 
+			               cout<<"æ’å…¥åˆ°ç¬¬å‡ å·å­¦ç”Ÿ"<<endl; 
 			               int k;
 			               cin>>k;
 			               insertElement(h,k);
@@ -110,17 +110,17 @@ int main()
 		                }
 		                case 2:
 		                {
-			               cout<<"É¾³ıµÚ¼¸ºÅÑ§Éú"<<endl; 
+			               cout<<"åˆ é™¤ç¬¬å‡ å·å­¦ç”Ÿ"<<endl; 
 			               int k;
 			               cin>>k;
 			               deleteElement(h,k);
 			               break;
-	                    }
-	                    case 3:
+	                        }
+	                        case 3:
 		                {
 			               display(h);
 			               break;
-	                    }
+	                        }
 	                }
 		}	
 	}
